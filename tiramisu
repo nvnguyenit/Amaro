@@ -418,9 +418,9 @@ class Bootstrapper
     REPLACEMENT_ORGANIZATION = 'Crush & Lovely'
     REPLACEMENT_DOMAIN = 'com.crushlovely'
 
-    BOOTSTRAP_REPO = 'https://github.com/crushlovely/Amaro.git'
+    BOOTSTRAP_REPO = 'https://github.com/nvnguyenit/Amaro.git'
     DEFAULT_BOOTSTRAP_BRANCH = 'master'
-    BOOTSTRAP_WEBSITE = 'https://github.com/crushlovely/Amaro'
+    BOOTSTRAP_WEBSITE = 'https://github.com/nvnguyenit/Amaro'
 
     attr_accessor :options
 
@@ -447,8 +447,8 @@ class Bootstrapper
             pod_version_is_good = Gem::Dependency.new('pod', '>0.34.0').match?('pod', pod_version)
             raise AmaroError.new("Amaro requires version 0.34.1 or later of CocoaPods. You have version #{pod_version}", 'Running "gem update cocoapods" should fix this.') unless pod_version_is_good
 
-            dev_tools_path = sh('xcode-select -p', 'The Xcode command line tools don\'t seem to be installed. Running "xcode-select --install" should fix that.', :show_output_on_error => false).strip
-            xcode_version = sh("/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' '#{dev_tools_path}/../Info.plist'").strip
+            #dev_tools_path = sh('xcode-select -p', 'The Xcode command line tools don\'t seem to be installed. Running "xcode-select --install" should fix that.', :show_output_on_error => false).strip
+            #xcode_version = sh("/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' '#{dev_tools_path}/../Info.plist'").strip
             #xcode_version_is_good = Gem::Dependency.new('xcode', '~>7.0').match?('xcode', xcode_version)
             #raise AmaroError.new("Amaro requires the default Xcode command line tools to point to Xcode 7.0 or later. Yours point to #{xcode_version}.", 'Install Xcode 7.0 or later, and run "xcode-select" to point to that.') unless xcode_version_is_good
 
